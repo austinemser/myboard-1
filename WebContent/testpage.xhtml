@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+    <h:body>
+    	
+    	<ui:composition template="/template/common/commonLayout.xhtml">
+    	
+    		<ui:define name="content">
+    			<h2>This is testpage content</h2>
+    			
+    			<f:view>
+    			    <h:form>
+    			    
+    			        <h:outputText value="&lt;br/&gt;" escape="false" />
+    			        <h:outputText value="This is a message from TestPageBean: #{testPageBean.message}" />
+    			        <h:outputText value="&lt;br/&gt;" escape="false" />
+    			        <h:outputText value="&lt;br/&gt;" escape="false" />
+    			        
+    			        <h:outputText value="Take me to testpage2: " />
+    			        <h:commandButton action="testpage2" value="Submit" />
+    			    </h:form>
+    			</f:view>
+    			
+    		</ui:define>
+    		
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

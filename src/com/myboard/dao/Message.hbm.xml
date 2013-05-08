@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2013 12:50:36 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.myboard.dao.Message" table="Message" catalog="myboard" lazy="false">
+        <id name="messageId" type="java.lang.Integer">
+            <column name="message_id" />
+            <generator class="identity" />
+        </id>
+        <property name="parentId" type="java.lang.Integer">
+            <column name="parent_id" />
+        </property>
+        <many-to-one name="course" class="com.myboard.dao.Courses" fetch="select">
+            <column name="course_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sender" class="com.myboard.dao.CourseUsers" fetch="select">
+            <column name="from_uid" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="title" length="45" not-null="true" />
+        </property>
+        <property name="message" type="string">
+            <column name="message" length="16777215" not-null="true" />
+        </property>
+        <property name="attachmentFilename" type="string">
+            <column name="attachment_filename" length="45" />
+        </property>
+		<set name="recipients" table="Message_Recipient" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="message_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.MessageRecipient" />
+        </set>
+    </class>
+</hibernate-mapping>

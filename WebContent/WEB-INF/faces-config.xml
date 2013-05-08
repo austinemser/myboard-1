@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+
+    <!-- ************** Managed Beans ***************** -->
+    <managed-bean>
+        <managed-bean-name>AssignUsersBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.AssignUsersBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>CourseBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.CourseBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>UserBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.UserBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>testPageBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.TestPageBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>testUserBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.TestUserBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+	    <managed-bean-name>userSession</managed-bean-name>
+	    <managed-bean-class>com.myboard.business.UserSession</managed-bean-class>
+	    <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>AnnouncementBean</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.AnnouncementBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+    	<managed-bean-name>AnnouncementCreateBean</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.AnnouncementCreateBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>loginBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.LoginBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>userSession</property-name>
+            <value>#{userSession}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>simpleList</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.SimpleList</managed-bean-class>
+    	<managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>parameter</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.Parameter</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>storage</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.Storage</managed-bean-class>
+    	<managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>gradeList</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.GradeList</managed-bean-class>
+    	<managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>updateGrade</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.UpdateGrade</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>materialTeacherBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.MaterialTeacherBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+     <managed-bean>
+        <managed-bean-name>materialStudentBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.MaterialStudentBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <!-- ************** Navigation Rules ************** -->
+        <navigation-rule>
+        <from-view-id>/loginPage.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- TestUser Pages -->
+    <navigation-rule>
+        <from-view-id>/testUser.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/testUser.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/testUserSearch.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/testUserSearch.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/testUserCreate.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/testUser.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/testUserUpdate.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/testUser.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/courseMaterialTeacher.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>uploadFile</from-outcome>
+            <to-view-id>/uploadFile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/uploadFile.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fileUploaded</from-outcome>
+            <to-view-id>/uploadFile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>/courseMaterialStudent.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>downloadFile</from-outcome>
+            <to-view-id>/downloadFile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

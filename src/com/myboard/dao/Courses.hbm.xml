@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2013 12:50:36 AM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.myboard.dao.Courses" table="Courses" catalog="myboard" lazy="false">
+        <id name="courseId" type="java.lang.Integer">
+            <column name="course_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="section" class="com.myboard.dao.CourseSection" fetch="select">
+            <column name="course_section_id" not-null="true" />
+        </many-to-one>
+		<many-to-one name="semester" class="com.myboard.dao.Semester" fetch="select">
+            <column name="course_semester_id" not-null="true" />
+        </many-to-one>
+        <property name="courseRootDirectory" type="string">
+            <column name="course_root_directory" length="45" not-null="true" />
+        </property>
+        <set name="materials" table="Course_Material" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.CourseMaterial" />
+        </set>
+        <set name="announcements" table="Announcements" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.Announcements" />
+        </set>
+        <set name="users" table="Course_Users" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.CourseUsers" />
+        </set>
+        <set name="messages" table="Message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.Message" />
+        </set>
+        <set name="assignments" table="Assignments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="course_id" not-null="true" />
+            </key>
+            <one-to-many class="com.myboard.dao.Assignments" />
+        </set>
+    </class>
+</hibernate-mapping>
