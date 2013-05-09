@@ -12,6 +12,8 @@
     	<ui:composition template="/template/common/commonLayout.xhtml">
     		<ui:define name="content">
 				<h:form>
+				<fieldset>
+				<legend>Login</legend>
 				    <h:panelGrid columns="2">
 				        <h:outputText value="Username" />
 				        <h:inputText value="#{loginBean.username}" autocomplete="off" />
@@ -22,6 +24,7 @@
 				        <h:panelGroup />
 				        <h:commandButton value="login" action="#{loginBean.login}" />
 				    </h:panelGrid>
+				    </fieldset>
 				</h:form>
     		</ui:define>
     	</ui:composition>

@@ -3,14 +3,16 @@ package com.myboard.bean;
 import java.io.Serializable;
 
 import javax.faces.context.FacesContext;
+import java.security.MessageDigest;
 
+import com.myboard.business.MyBoardSecurity;
 import com.myboard.business.User;
 import com.myboard.business.UserSession;
 
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = -9123661301334518697L;
-
+    
 	private UserSession userSession;
 	private String username;
 	private String password;
@@ -51,7 +53,8 @@ public class LoginBean implements Serializable {
 		user.readUser();
 		
 		if(!user.getFirstName().isEmpty() && !user.getLastName().isEmpty() && !user.getPassword().isEmpty()){
-			if(this.password.equals(user.getPassword())){
+			String hashedPwd = MyBoardSecurity.hashIt(this.password);
+			if(hashedPwd.equals(user.getPassword())){
 				userSession.setUser(user);
 			}
 		}else{
@@ -66,6 +69,5 @@ public class LoginBean implements Serializable {
 		
 		return "OK";
 	}
-	
-	
+
 }

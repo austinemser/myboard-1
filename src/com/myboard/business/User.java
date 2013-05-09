@@ -85,7 +85,7 @@ public class User implements Serializable {
 		com.myboard.dao.AccountPermissions p = getPermissionObjById();
 		if(p == null) return;
 		
-		Users users = new Users(this.uid, this.firstName, this.lastName, d, this.password, p,
+		Users users = new Users(this.uid, this.firstName, this.lastName, d, MyBoardSecurity.hashIt(this.password), p,
         this.creationDate, this.lastLogin, this.privateDirectory, this.active, this.emailAddress);
 		dao.create(users);
 	}
@@ -106,7 +106,7 @@ public class User implements Serializable {
 		Users users = dao.read(this.uid);
 		
 		if(users != null){
-			users.setPassword(!this.password.isEmpty() && this.password != users.getPassword() ? this.password : users.getPassword());
+			users.setPassword(!this.password.isEmpty() && this.password != users.getPassword() ? MyBoardSecurity.hashIt(this.password) : users.getPassword());
 			users.setFirstName(!this.firstName.isEmpty() && this.firstName != users.getFirstName() ? this.firstName : users.getFirstName());
 			users.setLastName(!this.lastName.isEmpty() && this.lastName != users.getLastName() ? this.lastName : users.getLastName());
 			users.setDepartment(this.department != User.INVALID_DEPARTMENT && this.department != users.getDepartment().getDeptId() ? getDeptObjById() : users.getDepartment());

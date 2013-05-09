@@ -65,11 +65,6 @@
         </managed-property>
     </managed-bean>
     <managed-bean>
-    	<managed-bean-name>simpleList</managed-bean-name>
-    	<managed-bean-class>com.myboard.bean.SimpleList</managed-bean-class>
-    	<managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
     	<managed-bean-name>parameter</managed-bean-name>
     	<managed-bean-class>com.myboard.bean.Parameter</managed-bean-class>
     	<managed-bean-scope>request</managed-bean-scope>
@@ -100,6 +95,24 @@
         <managed-bean-name>materialStudentBean</managed-bean-name>
         <managed-bean-class>com.myboard.bean.MaterialStudentBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+ <managed-bean>
+    	<managed-bean-name>dashboardBean</managed-bean-name>
+    	<managed-bean-class>com.myboard.bean.DashboardBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>viewAccountsBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.ViewAccountsBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>viewSingleAccountBean</managed-bean-name>
+        <managed-bean-class>com.myboard.bean.ViewSingleAccountBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
     <!-- ************** Navigation Rules ************** -->
